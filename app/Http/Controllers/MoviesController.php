@@ -106,7 +106,7 @@ class MoviesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function updateMovie(Request $request, $id)
+    public function update(Request $request, $id)
     {
         $movie = Movie::find($id);
         $movie->title = $request->input('title');
@@ -115,6 +115,7 @@ class MoviesController extends Controller
         $movie->genre = $request->input('genre');
         $movie->price = $request->input('price');
         $movie->released_date = $request->input('released_date');
+
         if($request->hasFile('movie_cover'))
         {
             $destination = 'uploads/movies/'.$movie->movie_cover;
@@ -129,8 +130,9 @@ class MoviesController extends Controller
             $file->move('uploads/movies/', $filename);
             $movie->movie_cover = $filename;
         }
+        
         $movie->update();
-        return redirect()->back()->with('status', 'Movie Updated Successfully');
+        return redirect()->to('/admin/update/'.$id)->with('status', 'Movie Updated Successfully');
     }
 
     /**

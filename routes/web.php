@@ -44,7 +44,7 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function(){
         Route::post('store-movie', [MoviesController::class, 'storeMovie'])->name('save.movie');
         Route::get('all-movies', [MoviesController::class, 'index'])->name('show.movies');
         Route::get('edit-movie/{id}', [MoviesController::class, 'editMovie'])->name('edit.movie');
-        Route::put('update-movie/{id}', [MoviesController::class, 'updateMovie'])->name('update.movie');
+        Route::put('edit-movie/{id}', [MoviesController::class, 'update'])->name('edit-movie');
         //Route::get('delete-movie/{id}', [MoviesController::class, 'deleteMovie']);
         Route::delete('delete-movie/{id}', [MoviesController::class, 'deleteMovie']);
     });

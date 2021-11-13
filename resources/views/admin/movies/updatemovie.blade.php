@@ -11,7 +11,7 @@
             <div class="card">
                 <div class="card-header"><h5>Update Movie <a href="{{ route('admin.show.movies') }}" class="btn btn-danger float-end">Back</a></h5></div>
                 <div class="card-body">
-                    <form method="POST" action="{{ url('admin/update.movie/'.$movie->id) }}" enctype="multipart/form-data">
+                    <form method="POST" action="/admin/edit-movie/{{ $movie->id }}" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <div class="row mb-3">
@@ -43,6 +43,13 @@
                             <label for="genre" class="col-sm-2 col-form-label">Genre</label>
                             <div class="col-sm-10">
                               <input type="text" class="form-control" value="{{ $movie->genre }}" id="genre" name="genre">
+                            </div>
+                          </div>
+
+                          <div class="row mb-3">
+                            <label for="price" class="col-sm-2 col-form-label">Price</label>
+                            <div class="col-sm-10">
+                              <input type="number" step="any" class="form-control" value="{{ $movie->price }}" id="price" name="price">
                             </div>
                           </div>
 
