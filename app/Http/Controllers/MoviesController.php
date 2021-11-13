@@ -132,7 +132,7 @@ class MoviesController extends Controller
         }
         
         $movie->update();
-        return redirect()->to('/admin/update/'.$id)->with('status', 'Movie Updated Successfully');
+        return redirect()->to('/admin/edit-movie/'.$id)->with('status', 'Movie Updated Successfully');
     }
 
     /**
