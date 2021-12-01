@@ -26,6 +26,11 @@ Route::get('/dashboard', function () {
     return view('dashboard', compact('movie'));
 })->middleware(['auth'])->name('dashboard');
 
+Route::get('/purchase-movie', function () {
+    $movie = Movie::all();
+    return view('purchasemovie', compact('movie'));
+})->middleware(['auth'])->name('purchasemovie');
+
 require __DIR__.'/auth.php';
 
 
@@ -45,7 +50,7 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function(){
         Route::get('all-movies', [MoviesController::class, 'index'])->name('show.movies');
         Route::get('edit-movie/{id}', [MoviesController::class, 'editMovie'])->name('edit.movie');
         Route::put('edit-movie/{id}', [MoviesController::class, 'update'])->name('edit-movie');
-        //Route::get('delete-movie/{id}', [MoviesController::class, 'deleteMovie']);
+        //Route::get('purchase-movie/{id}', [MoviesController::class, 'purchaseMovie']);
         Route::delete('delete-movie/{id}', [MoviesController::class, 'deleteMovie']);
     });
     

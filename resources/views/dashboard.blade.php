@@ -19,8 +19,8 @@
                 <a href="{{ url('readmore', $item->id ) }}" class="btn btn-danger btn-sm ">Read More..</a>
                 @endif
                 @else
-                <a href="{{ url('admin/purchase-movie', $item->id ) }}" class="btn btn-primary btn-sm ">Purchase</a>
-                <a href="{{ url('admin/watch-movie', $item->id ) }}" class="btn btn-danger btn-sm ">Watch Trailer</a>
+                <a href="{{ url('purchase-movie', $item->id ) }}" class="btn btn-primary btn-sm ">Purchase</a>
+                <a href="{{ url('watch-movie', $item->id ) }}" class="btn btn-danger btn-sm ">Watch Trailer</a>
               
                 @endguest
                 
